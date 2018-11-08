@@ -1,6 +1,6 @@
 import csv
 
-files = ['October2018.csv', 'September2018.csv']
+files = ['September2018.csv', 'October2018.csv']
 data = []
 linesread = 0
 for file in files:
@@ -16,7 +16,7 @@ for file in files:
             else:
                 for rows in data:
                     #print(temp[8] + ' ' + rows[8])
-                    if temp[8] == rows[8]:
+                    if '2018' not in temp[2]:
                         checkFlag = True
                     if checkFlag:
                         break
@@ -28,5 +28,5 @@ with open('aggregated_data.csv',mode= 'w') as outfile:
     writer = csv.writer(outfile,delimiter=',',quotechar='"',quoting=csv.QUOTE_MINIMAL)
     for row in data:
         writer.writerow(row)
-print(linesread)
-print(data)
+#print(linesread)
+#print(data)
