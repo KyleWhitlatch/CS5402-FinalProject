@@ -13,3 +13,16 @@ Analysis of Crime Data in the City of St. Louis.
 - Timeline per District for # of Total CrimeID
 5. Write Report
 6. Profit
+
+
+All CrimeID Categories:
+1#### = Homicide
+2#### = Rape
+3#### = Robbery
+4#### = Aggravated Assault
+5#### = Burglary
+6#### = Larceny
+7#### = Vehicle Theft
+8#### = Arson
+9#### = Simple Assault
+Else = DROP
