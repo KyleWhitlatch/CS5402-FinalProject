@@ -3,7 +3,8 @@ from sklearn import tree
 import pandas as pd
 import numpy as np
 
-files = ['September2018.csv', 'October2018.csv']
+files = ['January2018.csv','February2018.csv','March2018.csv','April2018.csv','May2018.csv','June2018.csv',
+         'July2018.csv','August2018.csv','September2018.csv', 'October2018.csv']
 data = []
 linesread = 0
 colsToDelete = [3,4,5,6,7,11,12,13,14,15,16,17]
@@ -34,7 +35,7 @@ for file in files:
                     temp = np.delete(temp,colsToDelete).tolist()
                     #print(temp)
                     data.append(temp)
-with open('aggregated_data.csv',mode= 'w') as outfile:
+with open('aggregated_data.csv',mode= 'w',newline='') as outfile:
     writer = csv.writer(outfile,delimiter=',',quotechar='"',quoting=csv.QUOTE_MINIMAL)
     for row in data:
         writer.writerow(row)
