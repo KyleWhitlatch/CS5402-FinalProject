@@ -26,3 +26,9 @@ All CrimeID Categories:
 - 8#### = Arson
 - 9#### = Simple Assault
 - Else = DROP
+
+
+Time:
+1 = Morning (6am - 11:59am)
+2 = Afternoon (12pm - 5:59pm)
+3 = Night (6pm - 5:59am)
