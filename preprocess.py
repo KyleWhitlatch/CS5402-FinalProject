@@ -82,7 +82,7 @@ data['Time'] = np.where(data['Time'].between(1800,2400), 3, data['Time'])
 
 
 
-data.to_csv('aggregated_data.csv', sep=',')
+data.to_csv('aggregated_data.csv', sep=',', index=False)
 
 
 #print (data.head())
