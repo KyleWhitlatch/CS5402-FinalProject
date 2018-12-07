@@ -1,24 +1,1 @@
-from id3 import Id3Estimator, export_text
-import numpy as np
-import preprocess, csv
-
-X = []
-Y = []
-feature_names = []
-
-with open('aggregated_data.csv',mode='r') as infile:
-    print('opened el file correcto')
-    csvfile = csv.reader(infile,delimiter=',')
-    row = 0
-    for row in csvfile:
-        if row == 0:
-            feature_names = [row[0],row[1],row[2],row[4],row[6],row[7]]
-        else:
-            X.append([row[0],row[1],row[2],row[4],row[6],row[7]])
-            Y.append(row[3])
-
-X = np.array(X)
-Y = np.array(Y)
-clf = Id3Estimator()
-clf.fit(X,Y, check_input=True)
-print(export_text(clf.tree_,feature_names))
+from id3 import Id3Estimator, export_textimport numpy as npimport preprocess, csvX = []Y = []feature_names = []with open('aggregated_data.csv',mode='r') as infile:    print('opened el file correcto')    csvfile = csv.reader(infile,delimiter=',')    rows = 0    for row in csvfile:        if rows == 0:            feature_names = ['CodedMonth', 'DateOccur', 'District',                             'XCoord', 'YCoord']        else:            X.append([row[1],row[2],row[4],row[6],row[7]])            Y.append(row[3])        rows += 1X = np.array(X)Y = np.array(Y)clf = Id3Estimator()clf.fit(X,Y, check_input=True)text = export_text(clf.tree_, feature_names)with open('tree.txt', mode='w+') as out:    out.write(text)    out.close()testX = []testY = []with open('testing.csv',mode='r') as test:    tfile = csv.reader(test,delimiter=',')    rows = 0    for row in tfile:        if rows == 0:            pass        else:            testX.append([row[1], row[2], row[4], row[6], row[7]])            testY.append(row[3])        rows += 1testX = np.array(testX)testY = np.array(testY)print(clf.predict(testX))
